@@ -12,10 +12,25 @@ let winningTickets = [
   { tixNum: "8751426", expires: "2020-09-15", prize: 100000 },
 ];
 
-window.onload = function() {
+window.onload = function () {
   loadWinningTicketsTable();
-}
+};
 
 function loadWinningTicketsTable() {
+  const tbody = document.getElementById("winningTicketsTableBody");
+  let length = winningTickets.length;
+  for(let i = 0; i < length; i++) {
+    // for every ticket create a row
+    let row = tbody.insertRow(-1);
+    // add cells to the row for every ticket property
+    let cell0 = row.insertCell(0);
+    cell0.innerHTML = winningTickets[i].tixNum;
 
+    let cell1 = row.insertCell(1);
+    cell1.innerHTML = winningTickets[i].prize;
+
+    let cell2 = row.insertCell(2);
+    cell2.innerHTML = winningTickets[i].expires;
+
+  }
 }
